@@ -1,0 +1,42 @@
+{
+  "name": "libretexts-annotation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.23.0 <23"
+  },
+  "scripts": {
+    "start": "node --experimental-strip-types src/server.ts",
+    "provision": "node --experimental-strip-types src/provision.ts",
+    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "test:browser": "playwright test",
+    "local:start": "node scripts/local-service.mjs start",
+    "local:stop": "node scripts/local-service.mjs stop",
+    "local:status": "node scripts/local-service.mjs status",
+    "test:books": "playwright test -c playwright.books.config.ts",
+    "import:library": "node --experimental-strip-types scripts/import-library.ts",
+    "local:books:start": "node scripts/local-service.mjs start books",
+    "local:books:status": "node scripts/local-service.mjs status books",
+    "local:books:stop": "node scripts/local-service.mjs stop books",
+    "local:reader:start": "node scripts/local-service.mjs start reader",
+    "local:reader:status": "node scripts/local-service.mjs status reader",
+    "local:reader:stop": "node scripts/local-service.mjs stop reader",
+    "test:reader": "vitest run --config vitest.reader.config.mjs",
+    "test:reader:browser": "playwright test -c playwright.reader.config.ts annotation-author-focus.spec.js annotation-participation.spec.js annotation-authorization.spec.js",
+    "stage:annotations": "node scripts/stage-annotations.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@types/node": "22.19.1",
+    "happy-dom": "15.11.7",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3",
+    "vitest": "2.1.9"
+  },
+  "dependencies": {
+    "parse5": "8.0.0"
+  },
+  "license": "MIT"
+}

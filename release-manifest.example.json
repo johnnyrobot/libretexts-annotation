@@ -1,0 +1,19 @@
+{
+  "schema": "libretexts-social-annotation-release-v1",
+  "status": "TEMPLATE_NOT_A_DEPLOYED_RELEASE",
+  "catalog": {
+    "file": "catalog-final.json",
+    "sha256": "REPLACE_WITH_VERIFIED_64_CHARACTER_SHA256"
+  },
+  "assets": {
+    "inventory": "annotation-assets.sha256",
+    "expectedCount": 8,
+    "licenseNotice": "_assets/reader/LICENSE.social-annotation",
+    "codeAssetCount": 7
+  },
+  "deploymentReceipt": "RECORD_ACTUAL_OPERATOR_VERIFICATION_SEPARATELY",
+  "source": {
+    "repository": "https://github.com/johnnyrobot/libretexts-annotation",
+    "commit": "REPLACE_WITH_REVIEWED_40_CHARACTER_COMMIT"
+  }
+}

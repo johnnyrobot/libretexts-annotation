@@ -1,0 +1,6 @@
+[
+  {"html":"<p> First\n  sentence.<br>Second <span>sentence.</span> </p>","quote":"First sentence. Second sentence."},
+  {"html":"<p>A<span>stro</span>nomy &amp; stars are interesting.</p>","quote":"Astronomy & stars are interesting."},
+  {"html":"<p>\u00a0A cell 🧬\u2003has a membrane.\u00a0</p>","quote":"A cell 🧬 has a membrane."},
+  {"html":"<p>Zero\u200bwidth stays in this sentence.</p>","quote":"Zero\u200bwidth stays in this sentence."}
+]

@@ -1,0 +1,17 @@
+import { mkdtempSync, writeFileSync, mkdirSync } from "node:fs";
+import { join } from "node:path";
+import { createHash } from "node:crypto";
+import { importLibrary } from "../src/catalog.ts";
+mkdirSync(".data", { recursive: true });
+const dir = mkdtempSync(".data/library-fixture-");
+const raw = JSON.stringify(await importLibrary("fixtures/library")) + "\n";
+const path = join(dir, "catalog.json");
+writeFileSync(path, raw, { mode: 0o600 });
+process.env.DATABASE = ".data/e2e-books.sqlite";
+process.env.FIXTURE_SECRETS = ".secrets/e2e-books.json";
+process.env.PORT = "4203";
+process.env.ORIGIN = "http://127.0.0.1:4203";
+process.env.CATALOG_PATH = path;
+process.env.CATALOG_SHA256 = createHash("sha256").update(raw).digest("hex");
+await import("../src/provision.ts");
+await import("../src/server.ts");

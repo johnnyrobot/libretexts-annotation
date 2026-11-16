@@ -1,0 +1,271 @@
+:root {
+  color-scheme: light dark;
+  --paper: #faf9f5;
+  --ink: #252f32;
+  --muted: #536268;
+  --accent: #176878;
+  --line: #c8d1d1;
+  --panel: #fff;
+  --focus: #a34913;
+  font-family: system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+header {
+  padding: 24px 5vw;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+header span {
+  font-weight: 700;
+}
+header p {
+  margin: 0 0 0 auto;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+main {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(320px, 1fr);
+}
+article {
+  padding: 64px 6vw;
+}
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 24px 0;
+}
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0 0 16px;
+}
+.book,
+.hint,
+footer {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.intro {
+  color: var(--muted);
+  max-width: 40ch;
+  line-height: 1.7;
+}
+article section {
+  margin-top: 48px;
+}
+blockquote {
+  font-family: Georgia, serif;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  margin: 24px 0 32px;
+  max-width: 40ch;
+}
+footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+aside {
+  padding: 48px 32px;
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  min-width: 0;
+}
+aside p {
+  line-height: 1.6;
+}
+label {
+  display: block;
+  margin: 16px 0 8px;
+  font-weight: 600;
+}
+input:not([type="checkbox"]),
+textarea {
+  display: block;
+  width: 100%;
+  font: inherit;
+  padding: 12px;
+  border: 1px solid var(--control-line, #71848a);
+  border-radius: 4px;
+  color: var(--ink);
+  background: var(--paper);
+  caret-color: var(--accent);
+}
+textarea {
+  resize: vertical;
+}
+button {
+  font: inherit;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  margin-top: 12px;
+}
+button:hover {
+  filter: brightness(0.9);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.actions button {
+  background: transparent;
+  color: var(--accent);
+}
+.thread {
+  border-top: 1px solid var(--line);
+  padding: 24px 0;
+  overflow-wrap: anywhere;
+}
+.thread h3 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+.thread .body {
+  white-space: pre-wrap;
+}
+.reply {
+  margin: 16px 0;
+  padding: 16px;
+  background: var(--paper);
+}
+.meta {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.skip {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  padding: 12px;
+  background: var(--panel);
+}
+.skip:focus {
+  top: 8px;
+}
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+::selection {
+  background: #c6e5e8;
+  color: #162e33;
+}
+[hidden] {
+  display: none !important;
+}
+#status {
+  min-height: 3em;
+}
+#filter-label {
+  font-size: 0.875rem;
+}
+#filter-label input {
+  margin-right: 8px;
+}
+@media (max-width: 760px) {
+  main {
+    display: block;
+  }
+  article {
+    padding: 32px 24px;
+  }
+  aside {
+    padding: 32px 24px;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  header {
+    padding: 20px 24px;
+    gap: 12px;
+  }
+  header p {
+    margin: 0;
+    width: 100%;
+  }
+  h1 br {
+    display: none;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #182125;
+    --panel: #202b30;
+    --ink: #edf2f0;
+    --muted: #b9c8cb;
+    --accent: #8bd3df;
+    --line: #4b5e63;
+    --focus: #ffc795;
+    --control-line: #92a7ad;
+  }
+  button {
+    color: #142b31;
+  }
+  .actions button {
+    color: var(--accent);
+  }
+}
+select {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  font: inherit;
+  padding: 12px;
+  border: 1px solid var(--control-line, #71848a);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 44px;
+}
+#book-navigation {
+  margin: 32px 0;
+}
+#book-navigation label {
+  font-size: 0.875rem;
+}
+.original-quote {
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+article {
+  padding-top: 32px;
+}
+h1 {
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+}
+#passage,
+#page-title,
+.book {
+  overflow-wrap: anywhere;
+}
